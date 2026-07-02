@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"/><style>
+/* те же стили */
+</style></head><body>
+<div id="box">
+    <h2>Авторизация</h2>
+    <input type="text" id="username" placeholder="Логин"/>
+    <input type="password" id="password" placeholder="Пароль"/>
+    <button onclick="login()">Войти</button>
+    <div id="msg"></div>
+</div>
+<script>
+function setUsername(name) { document.getElementById('username').value = name; }
+function login() {
+    const u = document.getElementById('username').value;
+    const p = document.getElementById('password').value;
+    if (!u || !p) return;
+    mp.trigger('loginAccount', u, p);
+}
+function result(success, message) {
+    document.getElementById('msg').innerText = message;
+    if (success) setTimeout(() => mp.trigger('closeAuthUI'), 500);
+}
+</script>
+</body></html>
