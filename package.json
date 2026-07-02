@@ -1,0 +1,9 @@
+{
+  "name": "gta-rp",
+  "version": "1.0.0",
+  "description": "RolePlay сервер на RAGE MP",
+  "main": "index.js",
+  "dependencies": {
+    "nedb": "^1.8.0"
+  }
+}
