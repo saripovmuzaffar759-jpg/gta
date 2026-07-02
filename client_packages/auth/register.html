@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"/><style>
+body { margin:0; background: rgba(0,0,0,0.7); display:flex; justify-content:center; align-items:center; height:100vh; font-family: Arial; }
+#box { background: #1a1a2e; padding:30px; border-radius:10px; color:white; text-align:center; }
+input { display:block; width:100%; margin:10px 0; padding:8px; }
+button { padding:10px 25px; margin:5px; background:#00aa00; border:none; color:white; cursor:pointer; }
+</style></head><body>
+<div id="box">
+    <h2>Регистрация</h2>
+    <input type="text" id="username" placeholder="Логин"/>
+    <input type="password" id="password" placeholder="Пароль"/>
+    <button onclick="register()">Создать</button>
+    <div id="msg"></div>
+</div>
+<script>
+function register() {
+    const u = document.getElementById('username').value;
+    const p = document.getElementById('password').value;
+    if (!u || !p) return;
+    mp.trigger('registerAccount', u, p);
+}
+function result(success, message) {
+    document.getElementById('msg').innerText = message;
+    if (success) setTimeout(() => mp.trigger('closeAuthUI'), 500);
+}
+</script>
+</body></html>
